@@ -1,8 +1,5 @@
 const express = require('express');
-const dotenv = require('dotenv');
 const apiRoutes = require('./src/routes/api');
-
-dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -13,11 +10,6 @@ app.use(express.urlencoded({ extended: true }));
 
 // Routes
 app.use('/api', apiRoutes);
-
-// Health check
-app.get('/health', (req, res) => {
-  res.json({ status: 'ok' });
-});
 
 // Error handling middleware
 app.use((err, req, res, next) => {
