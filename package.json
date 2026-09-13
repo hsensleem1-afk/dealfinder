@@ -1,0 +1,30 @@
+{
+  "name": "dealfinder",
+  "version": "1.0.0",
+  "description": "AI-powered live deals finder that discovers real deals, compares prices, and highlights the best available savings from trusted sources.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "test": "jest --forceExit --detectOpenHandles"
+  },
+  "keywords": [
+    "deals",
+    "shopping",
+    "price-comparison",
+    "ai"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "better-sqlite3": "^9.2.2",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^6.3.3"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
