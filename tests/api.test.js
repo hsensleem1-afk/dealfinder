@@ -1,7 +1,9 @@
+// Set test environment BEFORE requiring modules
+process.env.NODE_ENV = 'test';
+
 const request = require('supertest');
 const path = require('path');
 const fs = require('fs');
-const Database = require('better-sqlite3');
 const app = require('../server');
 
 // Use a separate test database
@@ -10,7 +12,8 @@ const testDbPath = path.join(__dirname, '..', 'dealfinder.test.db');
 // Clean up test database before running tests
 beforeAll(() => {
   if (fs.existsSync(testDbPath)) {
-    fs.unlinkSync(testDbPath);\n  }
+    fs.unlinkSync(testDbPath);
+  }
 });
 
 // Clean up test database after all tests
