@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="DealFinder - AI-powered live deals finder that discovers real deals, compares prices, and highlights the best available savings.">
+  <title>DealFinder - Live Deals & Price Comparison</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-content">
+        <div class="logo">
+          <h1>DealFinder</h1>
+          <p class="tagline">Real deals. Real savings.</p>
+        </div>
+      </div>
+    </header>
+
+    <!-- Search Section -->
+    <section class="search-section">
+      <div class="search-container">
+        <div class="search-box">
+          <input 
+            type="text" 
+            id="searchInput" 
+            class="search-input" 
+            placeholder="Search deals, products..."
+            autocomplete="off"
+          >
+          <button id="searchBtn" class="search-button">Search</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Deals Feed Section -->
+      <section class="deals-section">
+        <div class="section-header">
+          <h2>Live Deals</h2>
+          <button id="refreshBtn" class="refresh-button" title="Refresh deals">↻</button>
+        </div>
+        
+        <!-- Loading State -->
+        <div id="loadingState" class="state-container loading-state">
+          <div class="spinner"></div>
+          <p>Loading deals...</p>
+        </div>
+
+        <!-- Empty State -->
+        <div id="emptyState" class="state-container empty-state" style="display: none;">
+          <p class="empty-message">No live deals available yet.</p>
+          <p class="empty-hint">Check back soon for amazing deals!</p>
+        </div>
+
+        <!-- Error State -->
+        <div id="errorState" class="state-container error-state" style="display: none;">
+          <p class="error-message">Unable to load deals</p>
+          <p class="error-hint" id="errorDetails"></p>
+          <button id="retryBtn" class="retry-button">Try Again</button>
+        </div>
+
+        <!-- Deals Grid -->
+        <div id="dealsGrid" class="deals-grid"></div>
+      </section>
+
+      <!-- Search Results Section (Hidden by default) -->
+      <section id="searchResults" class="search-results-section" style="display: none;">
+        <div class="section-header">
+          <h2>Search Results</h2>
+          <button id="clearSearchBtn" class="clear-search-button">Back to Deals</button>
+        </div>
+
+        <!-- Search Loading -->
+        <div id="searchLoadingState" class="state-container loading-state" style="display: none;">
+          <div class="spinner"></div>
+          <p>Searching...</p>
+        </div>
+
+        <!-- Search Empty -->
+        <div id="searchEmptyState" class="state-container empty-state" style="display: none;">
+          <p class="empty-message">No results found</p>
+          <p class="empty-hint">Try different search terms</p>
+        </div>
+
+        <!-- Search Error -->
+        <div id="searchErrorState" class="state-container error-state" style="display: none;">
+          <p class="error-message">Search failed</p>
+          <p class="error-hint" id="searchErrorDetails"></p>
+        </div>
+
+        <!-- Search Results Grid -->
+        <div id="searchResultsGrid" class="results-grid"></div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>&copy; 2026 DealFinder. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
