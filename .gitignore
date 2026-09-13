@@ -24,3 +24,15 @@ logs/
 # Build outputs
 dist/
 build/
+
+# SQLite databases
+*.db
+*.db-shm
+*.db-wal
+
+# Jest coverage
+coverage/
+.nyc_output/
+
+# Test artifacts
+*.test.db
