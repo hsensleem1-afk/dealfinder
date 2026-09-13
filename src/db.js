@@ -1,8 +1,11 @@
 const Database = require('better-sqlite3');
 const path = require('path');
 
-// Create/open SQLite database file
-const dbPath = path.join(__dirname, '..', 'dealfinder.db');
+// Use separate database for tests
+const dbPath = process.env.NODE_ENV === 'test'
+  ? path.join(__dirname, '..', 'dealfinder.test.db')
+  : path.join(__dirname, '..', 'dealfinder.db');
+
 const db = new Database(dbPath);
 
 // Enable foreign keys
