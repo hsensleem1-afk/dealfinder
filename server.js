@@ -17,9 +17,11 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: 'Internal server error' });
 });
 
-// Start server
-app.listen(PORT, () => {
-  console.log(`DealFinder server running on port ${PORT}`);
-});
+// Start server only when executed directly
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`DealFinder server running on port ${PORT}`);
+  });
+}
 
 module.exports = app;
