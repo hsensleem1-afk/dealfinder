@@ -1,0 +1,41 @@
+name: DealFinder Tests
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Verify package-lock
+        run: |
+          test -f package-lock.json
+          if grep -q "PLACEHOLDER" package-lock.json; then
+            echo "PLACEHOLDER found in package-lock.json"
+            exit 1
+          fi
+
+      - name: Run tests
+        env:
+          NODE_ENV: test
+        run: npm test
